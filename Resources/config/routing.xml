@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="go_router_listener.class">Go\RoutingBundle\EventListener\RouterListener</parameter>
+    </parameters>
+
+    <services>
+        <service id="go_router_listener" class="%go_router_listener.class%">
+            <tag name="kernel.listener" event="core.request" method="onCoreRequest" />
+            <tag name="monolog.logger" channel="request" />
+            <argument type="service" id="router" />
+            <argument>%request_listener.http_port%</argument>
+            <argument>%request_listener.https_port%</argument>
+            <argument type="service" id="logger" on-invalid="ignore" />
+        </service>
+    </services>
+</container>
