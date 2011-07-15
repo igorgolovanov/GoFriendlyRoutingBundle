@@ -1,6 +1,6 @@
 <?php
 
-namespace Go\RoutingBundle\Routing\Generator\Dumper;
+namespace Go\FriendlyRoutingBundle\Routing\Generator\Dumper;
 
 use Symfony\Component\Routing\Generator\Dumper\PhpGeneratorDumper as BasePhpGeneratorDumper;
 

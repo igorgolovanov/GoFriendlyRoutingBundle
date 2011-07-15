@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Go\RoutingBundle\EventListener;
+namespace Go\FriendlyRoutingBundle\EventListener;
 
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;

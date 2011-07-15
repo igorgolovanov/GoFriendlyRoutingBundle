@@ -1,4 +1,4 @@
-GoRoutingBundle
+GoFriendlyRoutingBundle
 ===============
 
 ## Installation
@@ -11,17 +11,15 @@ If you're using the `bin/vendors.php` method to manage your vendor libraries,
 add the following entries to the `deps` in the root of your project file:
 
 ```
-RoutingBundle     /bundles/Go       git://github.com/golovanov/RoutingBundle.git
+[GoFriendlyRoutingBundle]
+    git=http://github.com/golovanov/GoFriendlyRoutingBundle.git
+    target=/bundles/Go/FriendlyRoutingBundle
 ```
-
-**NOTE**: This location and syntax of the `deps` file changed after BETA4. If you're
-using an older version of the deps system, you may need to swap the order of the items
-in the `deps` file.
 
 Next, update your vendors by running:
 
 ``` bash
-$ ./bin/vendors
+$ ./bin/vendors install
 ```
 
 Great! Now skip down to *Step 2*.
@@ -38,7 +36,7 @@ $ mkdir -pv vendor/bundles/Go
 Next, add the two necessary submodules:
 
 ``` bash
-$ git submodule add git://github.com/golovanov/RoutingBundle.git vendor/bundles/Go/RoutingBundle
+$ git submodule add git://github.com/golovanov/GoFriendlyRoutingBundle.git vendor/bundles/Go/FriendlyRoutingBundle
 ```
 
 ### Step 2: Configure the autoloader
@@ -69,7 +67,7 @@ public function registerBundles()
     $bundles = array(
         // ...
 
-        new Go\RoutingBundle\GoRoutingBundle(),
+        new Go\FriendlyRoutingBundle\GoFriendlyRoutingBundle(),
     );
 }
 ```

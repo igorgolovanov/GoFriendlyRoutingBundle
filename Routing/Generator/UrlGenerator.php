@@ -1,6 +1,6 @@
 <?php
 
-namespace Go\RoutingBundle\Routing\Generator;
+namespace Go\FriendlyRoutingBundle\Routing\Generator;
 
 use Symfony\Component\Routing\Generator\UrlGenerator as BaseUrlGenerator;
 use Symfony\Component\Routing\Exception\InvalidParameterException;

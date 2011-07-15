@@ -1,6 +1,6 @@
 <?php
 
-namespace Go\RoutingBundle\DependencyInjection\Compiler;
+namespace Go\FriendlyRoutingBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
