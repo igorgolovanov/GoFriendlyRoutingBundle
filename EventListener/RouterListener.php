@@ -34,9 +34,36 @@ class RouterListener
         $this->httpsPort = $httpsPort;
         $this->logger = $logger;
     }
+    
+    public function onEarlyKernelRequest(GetResponseEvent $event)
+    {
+        if (HttpKernelInterface::MASTER_REQUEST !== $event->getRequestType()) {
+            return;
+        }
 
-    public function onCoreRequest(GetResponseEvent $event)
+        $request = $event->getRequest();
+
+        // set the context even if the parsing does not need to be done
+        // to have correct link generation
+        $context = new RequestContext(
+            $request->getBaseUrl(),
+            $request->getMethod(),
+            $request->getHost(),
+            $request->getScheme(),
+            $request->isSecure() ? $this->httpPort : $request->getPort(),
+            $request->isSecure() ? $request->getPort() : $this->httpsPort
+        );
+
+        $this->router->setContext($context);
+    }
+
+    public function onKernelRequest(GetResponseEvent $event)
     {
         $request = $event->getRequest();
+        
+        if ($request->attributes->has('_controller')) {
+            // routing is already done
+            return;
+        }
     }
 }
